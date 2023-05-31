@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="signin.css" />
+    <title>SignIn</title>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="form-container">
+            <div class="signin=header">
+                <img src="../images/fblogo.png" alt="logo">
+                <h1> Create Your Account</h1>
+            </div>
+            <hr>
+
+            <form>
+                <div class="form">
+                    <div class="input-text">
+                        <input id="firstname" type="text" name="firstname" placeholder="Your First Name" />
+                    </div>
+                    <div class="input-text">
+                        <input id="lastname" type="lastname" name="lastname" placeholder="Your Last Name" />
+
+                    </div>
+                    <div class="input-text">
+                        <input id="email" type="email" name="email" placeholder="Your Email Address" />
+
+                    </div>
+
+                    <label for="birthday" style="margin-right: 75%;"><b>Date of Birth:</b></label>
+                    <input type="date" id="dob" name="dob">
+
+                    <div class="inputform-radio">
+                        <h3 style="margin-left: 8px; padding: 0;">Gender:</h2>
+                            <br>
+                            <form>
+
+                                <input type="radio" id="male" name="male" value="male">
+                                <label for="html">Male</label><br>
+                                <input type="radio" id="css" name="fav_language" value="CSS">
+                                <label for="css">Female</label><br>
+                                <input type="radio" id="javascript" name="fav_language" value="JavaScript">
+                                <label for="javascript">Other</label>
+                    </div>
+                    <div class="input-select">
+                        <div class="i-select">
+                        <label for="language"><b>Select Language</b></label>
+                        <select id="language" class="language" name="language" form="language">
+                            <option value="english">English</option>
+                            <option value="nepali">Nepali</option>
+                            <option value="hindi">Hindi</option>
+                            <option value="chinese">Chinese</option>
+                        </select>
+                    </div>
+                    </div>
+            </form>
+
+        </div>
+        <div class="createbutton">
+            <button type="submit">Create Account</button>
+        </div>
+
+
+        <p style="font-size: 18px">
+            <a href="../index.html"><b>Already Have an account?</b></a>
+        </p>
+        <br />
+
+
+        <hr style="color: grey" />
+        <br>
+        <p onclick="findaccount()">Couldnot find your account?</p>
+
+        <button onclick="goBackLogin()" class="btn">
+            Go back to login
+        </button>
+
+    </div>
+    </form>
+    </div>
+    <script defer src="../pages/signinscript.js"></script>
+</body>
+
+</html>

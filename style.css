@@ -1,0 +1,246 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  height: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgb(232, 230, 230);
+  margin-top: 150px;
+}
+.container {
+  margin: 10px 20px;
+  padding: 20px 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+}
+h1 {
+  color: rgb(90, 90, 224);
+  font-size: 70px;
+}
+.columnA {
+  width: 50%;
+  text-align: left;
+
+  margin: -200px 200px 0px -20px;
+}
+.aboutfacebookup {
+  padding: 20px 0;
+}
+h1 {
+  font-family: Arial, Helvetica, sans-serif;
+}
+h2 {
+  font-family: Arial, Helvetica, sans-serif;
+}
+.columnB {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 450px;
+  height: 480px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+}
+form {
+  display: flex;
+  flex-direction: column;
+  padding: 15px 0px;
+  align-items: center;
+  justify-content: center;
+}
+
+a {
+  color: rgb(107, 107, 209);
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  text-decoration: none;
+}
+.error {
+  color: red;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 20px;
+}
+input {
+  margin: 10px 0px;
+  padding: 0px 10px;
+  height: 60px;
+  width: 400px;
+  font-size: 18px;
+  border: 0.5px solid gray;
+  border-radius: 8px;
+}
+button {
+  margin: 10px 0px;
+  padding: 0px 10px;
+  color: white;
+  font-weight: bold;
+  background-color: rgb(107, 107, 209);
+  border: none;
+  height: 50px;
+  width: 420px;
+  border-radius: 8px;
+  font-size: 18px;
+}
+button:hover {
+  box-shadow: 0 5px 5px 0 rgba(134, 130, 130, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+a {
+  font-size: 24px;
+}
+hr {
+  width: 400px;
+  margin: 0 auto;
+}
+.btn {
+  margin: 35px 0px;
+  padding: 0px 10px;
+  background: rgb(24, 156, 24);
+  width: 250px;
+}
+.below-form {
+  padding: 30px 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.footer {
+  background-color: white;
+  width: 100%;
+  height: 260px;
+}
+@media (max-width: 1050px) {
+  .container {
+    flex-direction: column;
+    width: 100%;
+  }
+  .columnA {
+    width: 80%;
+    height: 100%;
+    margin-top: -170px;
+    margin-left: 210px;
+    align-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .columnB {
+    margin-top: 5px;
+  }
+  .aboutfacebookup h1{
+    font-size: 35px;
+  }
+  .aboutfacebookdown h2 {
+    font-size: 15px;
+  }
+  input {
+    height: 50px;
+    width: 550px;
+  }
+}
+@media (max-width: 850px) {
+  .container {
+    margin-top: -200px;
+    flex-direction: column;
+    width: 100%;
+    height: 1000px;
+  }
+  .columnA {
+    width: 80%;
+    height: 100%;
+    margin-top: 20px;
+    margin-left: 210px;
+    align-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .columnB {
+    margin-top: 30px;
+  }
+  .aboutfacebookdown h2 {
+    font-size: 18px;
+  }
+}
+@media (max-width: 600px) {
+  .container {
+    flex-direction: column;
+    width: 90%;
+  }
+  .columnA {
+    width: 80%;
+    height: 100%;
+    margin-top: 0px;
+    margin-left: 210px;
+    align-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .aboutfacebookdown h2 {
+    font-size: 18px;
+  }
+  input {
+    width: 350px;
+  }
+  button{
+
+ 
+    width: 270px;
+ 
+    
+    
+}
+}
+@media (max-width: 390px) {
+
+  .container {
+    flex-direction: column;
+    width: 85%;
+  }
+  .columnA {
+    width: 100%;
+    height: 100%;
+    margin-top: -140px;
+    margin-left: 210px;
+    align-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .columnB{
+    margin-top: -25px;
+  }
+  .aboutfacebookup h1{
+    font-size: 35px;
+  }
+  
+  .aboutfacebookdown h2 {
+    padding: 10px;
+    font-size: 15px;
+  }
+  input {
+    height: 50px;
+    width: 280px;
+  }
+  button{
+
+ 
+    width: 270px;
+ 
+    
+    
+}
+
+}
+

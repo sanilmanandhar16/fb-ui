@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="style.css" />
+  <title>f1Soft-Day3</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+</head>
+
+<body>
+  <div class="container">
+    <!-- <div class="columnA">
+      <div class="aboutfacebookup">
+        <h1>facebook</h1>
+      </div>
+      <div class="aboutfacebookdown">
+        <h2>Connect with friends and the world around you on facebook</h2>
+      </div>
+    </div> -->
+
+    <div class="columnB">
+     
+        <form action="/" method="GET">
+          <div class="user-name">
+            <input id="username" type="text" name="username" placeholder="Email or Phone Number"  />
+            <div id="usererror" class="error"></div>
+          </div>
+          <!-- <p id="usererror" hidden></p> -->
+          <div class="password">
+            <input id="password" type="password" name="password" placeholder="Password"  />
+            <div id="passworderror" class="error"></div>
+          </div>
+          <!-- <p id="passworderror" hidden></p> -->
+          <div class="submitbutton">
+            <button type="submit">Log In</button>
+
+            <p style="font-size: 18px">
+              <a href="#"><b>Forgot account? </b></a>
+            </p>
+            <br />
+          </div>
+
+          <div class="signinbutton">
+            <hr style="color: grey" />
+
+            <button onclick="goToSignin()" class="btn">
+              Create new Account
+            </button>
+          </div>
+        </form>
+     
+      <div class="below-form">
+        <h4>Create Page for a celebrity, band or Business</h4>
+      </div>
+    </div>
+  </div>
+
+  <script defer src="script.js"></script>
+
+  <!-- <div class="footer">
+      <h5>Footer Section</h5>
+    </div> -->
+</body>
+
+</html>
