@@ -1,5 +1,5 @@
 function goToSignin() {
-  window.location.href = "/pages/sign_in.html";
+  window.location.href = "../Signup/index.html";
 }
 
 function goBackLogin() {
