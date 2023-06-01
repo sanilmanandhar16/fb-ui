@@ -1,4 +1,3 @@
-
 function goToSignin() {
   window.location.href = "/pages/sign_in.html";
 }
@@ -31,7 +30,6 @@ form.addEventListener("submit", (e) => {
   //if the username is empty or have white spaces
   //tyo value lai chai user usererrors array ma push garne
 
- 
   if (username.value.trim() === "") {
     // console.log(username);
     usererrors.push("Username is required");
@@ -41,7 +39,7 @@ form.addEventListener("submit", (e) => {
     passworderrors.push("Password is required");
   }
   //esma ni same
-  if (password.value.length < 4  && password.value.trim() !== "" ) {
+  if (password.value.length < 4 && password.value.trim() !== "") {
     passworderrors.push("Password must be minimum 4-10 characters");
   } //same
   if (password.value.length > 10 && password.value.trim() !== "") {
@@ -70,6 +68,4 @@ form.addEventListener("submit", (e) => {
   } else {
     passworderror.textContent = "";
   }
-
- 
 });

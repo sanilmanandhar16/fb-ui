@@ -4,7 +4,7 @@
 <head>
     <link rel="stylesheet" href="signin.css" />
     <title>SignIn</title>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
 </head>
 
 <body>
@@ -15,15 +15,16 @@
                 <h1> Create Your Account</h1>
             </div>
             <hr>
-
-            <form>
-                <div class="form">
+            <div class="form">
+            <form method="GET" id="form">
+                
                     <div class="input-text">
                         <input id="firstname" type="text" name="firstname" placeholder="Your First Name" />
+                        <div id="fnameerror" class="error"></div>
                     </div>
                     <div class="input-text">
                         <input id="lastname" type="lastname" name="lastname" placeholder="Your Last Name" />
-
+                        <div id="lnameerror" class="error"></div>
                     </div>
                     <div class="input-text">
                         <input id="email" type="email" name="email" placeholder="Your Email Address" />
@@ -34,16 +35,16 @@
                     <input type="date" id="dob" name="dob">
 
                     <div class="inputform-radio">
-                        <h3 style="margin-left: 8px; padding: 0;">Gender:</h2>
+                        <h3 style="margin-left: 8px; padding: 0;"><b>Gender:</b></h2>
                             <br>
-                            <form>
-
+                         
+                                
                                 <input type="radio" id="male" name="male" value="male">
-                                <label for="html">Male</label><br>
-                                <input type="radio" id="css" name="fav_language" value="CSS">
-                                <label for="css">Female</label><br>
-                                <input type="radio" id="javascript" name="fav_language" value="JavaScript">
-                                <label for="javascript">Other</label>
+                                <label for="male">Male</label><br>
+                                <input type="radio" id="female" name="female" value="female">
+                                <label for="female">Female</label><br>
+                                <input type="radio" id="other" name="other" value="other">
+                                <label for="other">Other</label>
                     </div>
                     <div class="input-select">
                         <div class="i-select">
@@ -55,8 +56,9 @@
                             <option value="chinese">Chinese</option>
                         </select>
                     </div>
-                    </div>
-            </form>
+                 
+            
+        </div>
 
         </div>
         <div class="createbutton">
