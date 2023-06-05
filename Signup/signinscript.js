@@ -9,6 +9,7 @@ function validateForm(event) {
   document.getElementById("doberror").textContent = "";
   document.getElementById("gendererror").textContent = "";
   document.getElementById("languageerror").textContent = "";
+  document.getElementById("skillserror").textContent = "";
 
   // Perform validation
   var firstname = document.getElementById("firstname").value.trim();
@@ -27,6 +28,7 @@ function validateForm(event) {
   document.querySelector("#gendererror").style.color = "red";
   document.querySelector("#languageerror").style.color = "red";
   document.querySelector("#doberror").style.color = "red";
+  document.querySelector("#skillserror").style.color = "red";
 
   var valid = true; // sab validation check garna lai
 
@@ -67,7 +69,7 @@ function validateForm(event) {
   }
 
   if (!box1 && !box2 && !box3) {
-    document.getElementById("box1").parentNode.nextElementSibling.textContent =
+    document.getElementById("skillserror").textContent =
       "Please select at least one interest.";
     valid = false;
   }
@@ -76,4 +78,5 @@ function validateForm(event) {
   
     document.getElementById("form").submit();
   }
+
 }
