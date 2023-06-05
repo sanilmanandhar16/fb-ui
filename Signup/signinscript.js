@@ -80,3 +80,29 @@ function validateForm(event) {
   }
 
 }
+
+document.getElementById("form").addEventListener("submit", function(event){
+  event.preventDefault();
+//get form values
+  var firstname = document.getElementById("firstname").value.trim();
+  var lastname = document.getElementById("lastname").value.trim();
+  var email = document.getElementById("email").value.trim();
+  var dob = document.getElementById("dob").value;
+  var gender = document.querySelector('input[name="gender"]:checked');
+  var language = document.getElementById("language").value;
+  var box1 = document.getElementById("box1").checked;
+  var box2 = document.getElementById("box2").checked;
+  var box3 = document.getElementById("box3").checked;
+// store values in local storage
+  localStorage.setItem("firstname", firstname);
+  localStorage.setItem("lastname", lastname);
+  localStorage.setItem("email", email);
+  localStorage.setItem("dob", email);
+  localStorage.setItem("gender", dob);
+  localStorage.setItem("language", language);
+  localStorage.setItem("box1", box1);
+  localStorage.setItem("box2", box2);
+  localStorage.setItem("box3", box3);
+
+  window.location.href = "../Table/index.html";
+})
