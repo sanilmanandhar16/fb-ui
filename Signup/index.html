@@ -1,89 +1,132 @@
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <link rel="stylesheet" href="signin.css" />
     <title>SignIn</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-</head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
 
-<body>
+  <body>
     <div class="container">
-        <div class="form-container">
-            <div class="signin=header">
-                <img src="../images/fblogo.png" alt="logo">
-                <h1> Create Your Account</h1>
+      <div class="form-container">
+        <div class="signin=header">
+          <img src="../images/fblogo.png" alt="logo" />
+          <h1>Create Your Account</h1>
+        </div>
+        <hr />
+        <div class="form">
+          <form method="GET" id="form" onsubmit="validateForm(event)">
+            <div class="input-text">
+              <input
+                id="firstname"
+                type="text"
+                name="firstname"
+                placeholder="Your First Name"
+                s
+              />
+              <div id="fnameerror" class="error"></div>
             </div>
-            <hr>
-            <div class="form">
-            <form method="GET" id="form">
+            <div class="input-text">
+              <input
+                id="lastname"
+                type="lastname"
+                name="lastname"
+                placeholder="Your Last Name"
+              />
+              <div id="lnameerror" class="error"></div>
+            </div>
+            <div class="input-text">
+              <input
+                id="email"
+                type="email"
+                name="email"
+                placeholder="Your Email Address"
+              />
+              <div id="emailerror" class="error"></div>
+            </div>
+            <div class="dob">
+              <label for="birthday"></label>
+                <b>Date of Birth:</b></label
+              >
+              <input type="date" id="dob" name="dob" />
+              <div id="doberror" class="error"></div>
+            </div>
+
+            <div class="inputform-radio">
+              <label><b>Gender:</b></label>
+
+              <input type="radio" id="male" name="gender" value="male" />
+              <label for="male">Male</label>
+
+              <input type="radio" id="female" name="gender" value="female" />
+              <label for="female">Female</label>
+
+              <input type="radio" id="other" name="gender" value="other" />
+              <label for="other">Other</label>
+
+              
+            </div>
+            <div id="gendererror" class="error"></div>
+            <div class="input-select">
+              <div class="i-select">
+                <label><b>Language</b></label>
+                <select
+                  id="language"
+                  class="language"
+                  name="language"
+                  form="language"
+                >
+                  <option value="english">English</option>
+                  <option value="nepali">Nepali</option>
+                  <option value="hindi">Hindi</option>
+                  <option value="chinese">Chinese</option>
+                </select>
+              </div>
+
+              <div id="languageerror" class="error"></div>
+            </div>
+            <div class="checkboxsection">
+                <label style="margin-left:45px"><b>Skills</b></label>
                 
-                    <div class="input-text">
-                        <input id="firstname" type="text" name="firstname" placeholder="Your First Name" />
-                        <div id="fnameerror" class="error"></div>
-                    </div>
-                    <div class="input-text">
-                        <input id="lastname" type="lastname" name="lastname" placeholder="Your Last Name" />
-                        <div id="lnameerror" class="error"></div>
-                    </div>
-                    <div class="input-text">
-                        <input id="email" type="email" name="email" placeholder="Your Email Address" />
-
-                    </div>
-
-                    <label for="birthday" style="margin-right: 75%;"><b>Date of Birth:</b></label>
-                    <input type="date" id="dob" name="dob">
-
-                    <div class="inputform-radio">
-                        <h3 style="margin-left: 8px; padding: 0;"><b>Gender:</b></h2>
-                            <br>
-                         
-                                
-                                <input type="radio" id="male" name="male" value="male">
-                                <label for="male">Male</label><br>
-                                <input type="radio" id="female" name="female" value="female">
-                                <label for="female">Female</label><br>
-                                <input type="radio" id="other" name="other" value="other">
-                                <label for="other">Other</label>
-                    </div>
-                    <div class="input-select">
-                        <div class="i-select">
-                        <label for="language"><b>Select Language</b></label>
-                        <select id="language" class="language" name="language" form="language">
-                            <option value="english">English</option>
-                            <option value="nepali">Nepali</option>
-                            <option value="hindi">Hindi</option>
-                            <option value="chinese">Chinese</option>
-                        </select>
-                    </div>
-                 
-            
+              <input
+                type="checkbox"
+                id="box1"
+                name="box1"
+                value="Frontend"
+              />
+              <label for="box1"> Frontend</label><br />
+              <input
+                type="checkbox"
+                id="box2"
+                name="box2"
+                value="backend"
+              />
+              <label for="box2"> Backend</label><br />
+              <input
+                type="checkbox"
+                id="box3"
+                name="box3"
+                value="fullstack"
+              />
+              <label for="box3"> FullStack</label><br />
+            </div>
+            <div class="createbutton">
+              <button type="submit">Create Account</button>
+            </div>
+          </form>
         </div>
-
-        </div>
-        <div class="createbutton">
-            <button type="submit">Create Account</button>
-        </div>
-
-
         <p style="font-size: 18px">
-            <a href="../login/index.html"><b>Already Have an account?</b></a>
+          <a href="../login/index.html"><b>Already Have an account?</b></a>
         </p>
         <br />
-
-
         <hr style="color: grey" />
-        <br>
-        <p onclick="findaccount()">Couldnot find your account?</p>
+        <br />
 
-        <button onclick="goBackLogin()" class="btn">
-            Go back to login
+        <button class="btn">
+          <a href="../login/index.html"> Go back to login </a>
         </button>
-
+      </div>
     </div>
-    </form>
-    </div>
-    <script defer src="../pages/signinscript.js"></script>
-</body>
-
+    <script defer src="../Signup/signinscript.js"></script>
+  </body>
 </html>

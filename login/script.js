@@ -24,8 +24,7 @@ form.addEventListener("submit", (e) => {
   //     e.preventDefault();
   //     errorElement.innerHTML = messages.join(',')
   // }
-  console.log("username", username.value.length);
-  console.log("password", password.value.length);
+  
 
   //if the username is empty or have white spaces
   //tyo value lai chai user usererrors array ma push garne
