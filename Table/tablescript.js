@@ -4,26 +4,31 @@ var users = [
     name: "Ram",
     address: "Kathmandu",
     dob: "2000-1-2",
+    email: "ram@gmail.com",
+    language: "English",
     gender: "Male",
   },
   {
     name: "Sanil ",
     address: "Lalitpur",
     dob: "2004-10-2",
-    gender: "Female",
+    email: "sanil@gmail.com",
+    language: "Nepali",
+    gender: "Male",
   },
   {
     name: "Hari",
     address: "Bhaktapur",
     dob: "2022-10-2",
+    email: "Hari123@gmail.com",
+    language: "Hindi",
     gender: "Male",
   },
 ];
 
 // first euta table banauna function banaune
 
-//append child le  add garne kaam garcha
-
+// append child le  add garne kaam garcha
 
 function userTable() {
   var tbody = document.querySelector("#users tbody");
@@ -35,7 +40,7 @@ function userTable() {
     nameCell.textContent = user.name;
     row.appendChild(nameCell);
 
-    var addressCell = document.createElement("td"); 
+    var addressCell = document.createElement("td");
     addressCell.textContent = user.address;
     row.appendChild(addressCell);
 
@@ -43,12 +48,21 @@ function userTable() {
     dobCell.textContent = user.dob;
     row.appendChild(dobCell);
 
+    var emailCell = document.createElement("td");
+    emailCell.textContent = user.email;
+    row.appendChild(emailCell);
+    tbody.appendChild(row);
+
+    var languageCell = document.createElement("td");
+    languageCell.textContent = user.language;
+    row.appendChild(languageCell);
+
     var genderCell = document.createElement("td");
     genderCell.textContent = user.gender;
     row.appendChild(genderCell);
-    tbody.appendChild(row);
   });
 }
+
 function addUser(event) {
   event.preventDefault(); // Prevent form submission
 
@@ -56,13 +70,17 @@ function addUser(event) {
   var name = document.querySelector("#name").value;
   var address = document.querySelector("#address").value;
   var dob = document.querySelector("#dob").value;
+  var email = document.querySelector("#email").value;
+  var language = document.querySelector('input[name="language"]:checked').value;
   var gender = document.querySelector("#gender").value;
-
   // newUSer object create
   var newUser = {
     name: name,
     address: address,
     dob: dob,
+    email: email,
+
+    language: language,
     gender: gender,
   };
 
@@ -73,6 +91,7 @@ function addUser(event) {
   document.querySelector("#name").value = "";
   document.querySelector("#address").value = "";
   document.querySelector("#dob").value = "";
+  document.querySelector("#email").value = "";
   document.querySelector("#gender").value = "";
 
   // Clear the table body and re-render the table

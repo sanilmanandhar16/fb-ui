@@ -157,6 +157,7 @@ hr {
 .dob input {
   width: 170px;
 }
+
 @media (max-width: 1050px) {
   .form-container {
     flex-direction: column;

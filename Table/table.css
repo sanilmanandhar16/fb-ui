@@ -1,3 +1,6 @@
+*{
+  font-family: "Roboto Mono";
+}
 .container{
   display: flex;
   margin-left: 20px;
@@ -6,7 +9,7 @@
 .form{
   margin: 0;
   padding: 50px;
-  width: 500px;
+  width: 450px;
   height: 200px;
  
 }
@@ -16,17 +19,19 @@ form{
   border: none;
   border-radius: 12px;
   padding: 8px;
+  height: 500px;
   background-color: rgb(243, 240, 240);
  
 
 }
 label{
 font-size: 18px;
+margin-left: 12px;
 }
 input{
 width: 400px;
 height: 30px;
-
+margin-left: 12px;
 border-radius: 8px;
 }
 
@@ -56,14 +61,73 @@ h3{
 
 th, td {
   border: 1px solid rgb(211, 208, 208);
-  padding: 16px;
+  padding: 20px;
   text-align: left;
  
 }
 
 th {
-  background-color: #2591a4;
+  background-color: #94b3b9;
 }
+
+.gendersection select{
+  /* height:40px ;
+   width: 150px;
+   margin-left: 20px; */
+   background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  padding: 10px;
+  width: 200px;
+  border: none;
+  font-size: 18px;
+  
+}
+
+
+
+.language{
+  display: flex;
+  flex-direction: row;
+  margin-right: 8px;
+ 
+  
+ 
+}
+.language input{
+  height: 18px;
+ 
+  
+}
+.language label{
+  height: 18px;
+ 
+}
+input[type="radio"] {
+  margin-right: -22px;
+}
+
+
+input[type="date"]{
+    background-color: white;
+    padding: 8px;
+    
+    
+  
+    font-family: "Roboto Mono",monospace;
+    color: #030202;
+    font-size: 18px;
+    border: none;
+  
+    border-radius: 5px;
+}
+::-webkit-calendar-picker-indicator{
+    background-color: #abc7c8;
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+
 @media (max-width: 1050px) {
   .container {
     flex-direction: column;
@@ -120,7 +184,7 @@ th {
   .form{
     margin: 0;
     padding: 50px;
-    width: 300px;
+    width: 320px;
     height: 200px;
     margin-left: -25px ;
   }
@@ -135,8 +199,12 @@ th {
   input{
     width: 280px;
     height: 30px;
-    
+    margin-left: 8px;
     border-radius: 8px;
+    }
+    label{
+      margin-left: 8px;
+      
     }
     .btn{
   
