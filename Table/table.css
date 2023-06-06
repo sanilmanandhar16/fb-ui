@@ -1,12 +1,62 @@
-table {
+.container{
+  display: flex;
+  margin-left: 20px;
+ 
+}
+.form{
+  margin: 0;
+  padding: 50px;
+  width: 500px;
+  height: 200px;
+ 
+}
+form{
+  display: flex;
+  flex-direction: column;
+  border: none;
+  border-radius: 12px;
+  padding: 8px;
+  background-color: rgb(243, 240, 240);
+ 
+
+}
+label{
+font-size: 18px;
+}
+input{
+width: 400px;
+height: 30px;
+
+border-radius: 8px;
+}
+button{
+background-color: green;
+border: none;
+height: 40px;
+width: 200px;
+border-radius: 8px;
+color: white;
+}
+h3{
+  background-color: rgb(201, 240, 170);
+  padding: 20px;
+  margin-top: -8px;
+  text-align: center;
+}
+.table{
+  margin-top: 50px;
+}
+.table table {
   border-collapse: collapse;
-  width: 100%;
+  width: 1200px;
+  
 }
 
 th, td {
-  border: 1px solid black;
-  padding: 8px;
+  border: 1px solid rgb(211, 208, 208);
+  padding: 16px;
   text-align: left;
+ 
 }
 
 th {

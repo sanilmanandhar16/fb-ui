@@ -1,112 +1,92 @@
-
-
-
 // Users data
 var users = [
-    {
-      name: "Ram",
-      address: "Kathmandu",
-      dob: "2000-1-2",
-      gender: "Male"
-    },
-    {
-      name: "Sanil ",
-      address: "Lalitpur",
-      dob: "2004-10-2",
-      gender: "Female"
-    },
-    {
-      name: "Hari",
-      address: "Bhaktapur",
-      dob: "2022-10-2",
-      gender: "Male"
-    }
-  ];
-  
+  {
+    name: "Ram",
+    address: "Kathmandu",
+    dob: "2000-1-2",
+    gender: "Male",
+  },
+  {
+    name: "Sanil ",
+    address: "Lalitpur",
+    dob: "2004-10-2",
+    gender: "Female",
+  },
+  {
+    name: "Hari",
+    address: "Bhaktapur",
+    dob: "2022-10-2",
+    gender: "Male",
+  },
+];
 
 // first euta table banauna function banaune
 
 //append child le  add garne kaam garcha
-function userTable(){
-    var tbody =document.querySelector("#users tbody");
-
-    users.forEach(function(user){
-        var row = document.createElement("tr");
-
-        var nameCell = document.createElement("td");
-        nameCell.textContent = user.name;
-        row.appendChild(nameCell);
-
-       
 
 
-        var addressCell = document.createElement("td");
-        addressCell.textContent = user.address;
-        row.appendChild(addressCell);
+function userTable() {
+  var tbody = document.querySelector("#users tbody");
 
+  users.forEach(function (user) {
+    var row = document.createElement("tr");
 
-        var dobCell = document.createElement("td");
-        dobCell.textContent = user.address;
-        row.appendChild(dobCell);
+    var nameCell = document.createElement("td");
+    nameCell.textContent = user.name;
+    row.appendChild(nameCell);
 
+    var addressCell = document.createElement("td"); 
+    addressCell.textContent = user.address;
+    row.appendChild(addressCell);
 
+    var dobCell = document.createElement("td");
+    dobCell.textContent = user.dob;
+    row.appendChild(dobCell);
 
-        var genderCell = document.createElement("td");
-        genderCell.textContent = user.gender;
-        row.appendChild(genderCell);
-
-        tbody.appendChild(row);
-    })
+    var genderCell = document.createElement("td");
+    genderCell.textContent = user.gender;
+    row.appendChild(genderCell);
+    tbody.appendChild(row);
+  });
 }
+function addUser(event) {
+  event.preventDefault(); // Prevent form submission
+
+  // paila suru form bata values lyaune
+  var name = document.querySelector("#name").value;
+  var address = document.querySelector("#address").value;
+  var dob = document.querySelector("#dob").value;
+  var gender = document.querySelector("#gender").value;
+
+  // newUSer object create
+  var newUser = {
+    name: name,
+    address: address,
+    dob: dob,
+    gender: gender,
+  };
+
+  // Add the new user to the array
+  users.push(newUser);
+
+  // Clear the form inputs
+  document.querySelector("#name").value = "";
+  document.querySelector("#address").value = "";
+  document.querySelector("#dob").value = "";
+  document.querySelector("#gender").value = "";
+
+  // Clear the table body and re-render the table
+  var tbody = document.querySelector("#users tbody");
+  tbody.innerHTML = "";
+  userTable();
+}
+// form ko submit event ma add user lai bind garne
+var userForm = document.querySelector("#userForm");
+userForm.addEventListener("submit", addUser);
 userTable();
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // this is for the facebook
-  // var firstname = localStorage.setItem("firstname");
+// var firstname = localStorage.setItem("firstname");
 // var lastname = localStorage.setItem("lastname");
 // var email = localStorage.setItem("email");
 // var dob = localStorage.setItem("dob");
