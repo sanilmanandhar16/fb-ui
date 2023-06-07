@@ -24,6 +24,14 @@ var users = [
     language: "Hindi",
     gender: "Male",
   },
+  {
+    name: "Sita",
+    address: "Kuleshwor",
+    dob: "2012-1-2",
+    email: "Sita888@gmail.com",
+    language: "Nepali",
+    gender: "Female",
+  },
 ];
 
 // first euta table banauna function banaune
@@ -99,53 +107,72 @@ function addUser(event) {
   tbody.innerHTML = "";
   userTable();
 }
+
+function searchUsers() {
+  // first of all the input value is converted into the lowercase
+  var searchInput = document.querySelector("#searchInput").value.toLowerCase();
+
+
+  console.log("Search Input:", searchInput); //  searchInput le naya filtered array banayera dincha
+
+
+  //filtered users is declared. Here users is an array to be filtered
+
+  var filteredUsers = users.filter(function (user) {
+    return (
+      user.name.toLowerCase().includes(searchInput) ||
+      user.address.toLowerCase().includes(searchInput)||
+      user.dob.toLowerCase().includes(searchInput)||
+      user.email.toLowerCase().includes(searchInput)||
+      user.language.toLowerCase().includes(searchInput)||
+      user.gender.toLowerCase().includes(searchInput)
+    );
+  });
+
+// if substrings match bhako cha bhaye chai filtered users ma value aune bhayo
+  console.log("Filtered Users:", filteredUsers);
+
+
+  var tbody = document.querySelector("#users tbody");
+  tbody.innerHTML = ""; //to clear
+
+  //to play on row and datas
+  filteredUsers.forEach(function (user) {
+    var row = document.createElement("tr");
+
+    var nameCell = document.createElement("td");
+    nameCell.textContent = user.name;
+    row.appendChild(nameCell);
+
+    var addressCell = document.createElement("td");
+    addressCell.textContent = user.address;
+    row.appendChild(addressCell);
+
+    var dobCell = document.createElement("td");
+    dobCell.textContent = user.dob;
+    row.appendChild(dobCell);
+
+    var emailCell = document.createElement("td");
+    emailCell.textContent = user.email;
+    row.appendChild(emailCell);
+    
+    var languageCell = document.createElement("td");
+    languageCell.textContent = user.language;
+    row.appendChild(languageCell);
+
+     
+    var genderCell = document.createElement("td");
+    genderCell.textContent = user.gender;
+    row.appendChild(genderCell);
+
+    tbody.appendChild(row);
+  });
+}
+
 // form ko submit event ma add user lai bind garne
 var userForm = document.querySelector("#userForm");
 userForm.addEventListener("submit", addUser);
+
+var searchButton = document.querySelector("#searchButton");
+searchButton.addEventListener("click", searchUsers);
 userTable();
-
-// this is for the facebook
-// var firstname = localStorage.setItem("firstname");
-// var lastname = localStorage.setItem("lastname");
-// var email = localStorage.setItem("email");
-// var dob = localStorage.setItem("dob");
-// var gender = localStorage.setItem("gender");
-// var language = localStorage.setItem("language");
-// var box1 = localStorage.setItem("box1");
-// var box2 = localStorage.setItem("box2");
-// var box3 = localStorage.setItem("box3");
-
-// // Insert data into table
-// var table = document.getElementById("myTable").getElementsByTagName("tbody")[0];
-// var newRow = table.insertRow();
-// var firstnameCell = newRow.insertCell(0);
-// var lastnameCell = newRow.insertCell(1);
-// var emailCell = newRow.insertCell(2);
-// var dobCell = newRow.insertCell(3);
-// var genderCell = newRow.insertCell(4);
-// var languageCell = newRow.insertCell(5);
-// var box1Cell = newRow.insertCell(6);
-// var box2Cell = newRow.insertCell(7);
-// var box3Cell = newRow.insertCell(8);
-
-// firstnameCell.innerHTML = firstname;
-// lastnameCell.innerHTML = lastname;
-// emailCell.innerHTML = email;
-// dobCell.innerHTML = dob;
-// genderCell.innerHTML = gender;
-// languageCell.innerHTML = language;
-// box1Cell.innerHTML = box1;
-// box2Cell.innerHTML = box2;
-// box3Cell.innerHTML = box3;
-
-// // Clear local storage
-
-// localStorage.removeItem("firstname");
-// localStorage.removeItem("lastname");
-// localStorage.removeItem("email");
-// localStorage.removeItem("dob");
-// localStorage.removeItem("gender");
-// localStorage.removeItem("language");
-// localStorage.removeItem("box1");
-// localStorage.removeItem("box2");
-// localStorage.removeItem("box3");

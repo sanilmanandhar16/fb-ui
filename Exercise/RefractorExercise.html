@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <thead id ="tbody">
+            <td>name</td>
+            <td>address</td>
+            <td>dob</td>
+            <td>email</td>
+            <td>language</td>
+        </thead>
+    </table>
+
+
+    <script>
+var tbody = document.getElementById("tbody");
+const users = [
+  {
+    name: "Ram",
+    address: "Kathmandu",
+    dob: "2000-1-2",
+    email: "ram@gmail.com",
+    language: "English",
+    gender: "Male",
+  },
+  {
+    name: "Sanil ",
+    address: "Lalitpur",
+    dob: "2004-10-2",
+    email: "sanil@gmail.com",
+    language: "Nepali",
+    gender: "Male",
+  },
+  {
+    name: "Hari",
+    address: "Bhaktapur",
+    dob: "2022-10-2",
+    email: "Hari123@gmail.com",
+    language: "Hindi",
+    gender: "Male",
+  },
+];
+
+users.forEach((item)=>{
+    const row = document.createElement("tr"); 
+    row.innerHTML = `
+    <td>${item.name}</td>
+    <td>${item.address}</td>
+    <td>${item.dob}</td>
+    <td>${item.language}</td>
+    <td>${item.gender}</td>
+`
+tbody.appendChild(row);
+})
+    </script>
+</body>
+</html>

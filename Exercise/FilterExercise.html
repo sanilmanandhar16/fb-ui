@@ -1,0 +1,38 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+    <title>Filter Exercise</title>
+</head>
+<body>
+    <button onclick="filterArray()">Filter</button>
+</body>
+
+<script>
+    //Step1 : two parameters, arr = represents an array to be filtered, query = search ko lagi
+
+    // step 2; Filter method lai chai array parameter ma use garne4
+
+    ////filter creates new array passing some tests
+     function filterItems(arr, query) {
+      return arr.filter(function(el) {
+
+
+        return el.toLowerCase().includes(query.toLowerCase());  // --->>> includes() method = check if lowercase version of `el` 
+                                                               //element contains the lowercase version of query or search criteria as a substring
+      });
+    }
+
+    function filterArray() {
+        //declaring the string variables
+
+      const words = ["apple", "banana", "mouse", "cat"];
+
+      console.log(filterItems(words, "l")); // ['hello', 'world']
+      console.log(filterItems(words, "at")); // ['programming']
+      console.log(filterItems(words, "python")); // []
+    }
+</script>
+</html>
