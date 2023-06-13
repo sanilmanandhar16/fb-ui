@@ -57,31 +57,52 @@ function userTable() {
   });
 }
 
+// function addUser(event) {
+//   event.preventDefault();
+//   //form bata aune input val
+//   var firstname = document.querySelector("#firstname").value;
+//   var lastname = document.querySelector("#lastname").value;
+//   var dob = document.querySelector("#dob").value;
+//   var email = document.querySelector("#email").value;
+//   var language = document.querySelector('input[name="language"]:checked').value;
+//   var gender = document.querySelector("#gender").value;
+
+//   //val lai chai newUser ma store garne
+//   var newUser = {
+//     firstname: firstname,
+//     lastname: lastname,
+//     email: email,
+//     dob: dob,
+//     gender: gender,
+//     language: language,
+//   };
+//   //push newUser val to users arr
+//   users.push(newUser);
+
+//   document.querySelector("#userForm").reset();
+//   userTable();
+// }
+
+
 function addUser(event) {
   event.preventDefault();
-  //form bata aune input val
-  var firstname = document.querySelector("#firstname").value;
-  var lastname = document.querySelector("#lastname").value;
-  var dob = document.querySelector("#dob").value;
-  var email = document.querySelector("#email").value;
-  var language = document.querySelector('input[name="language"]:checked').value;
-  var gender = document.querySelector("#gender").value;
 
-  //val lai chai newUser ma store garne
-  var newUser = {
-    firstname: firstname,
-    lastname: lastname,
-    email: email,
-    dob: dob,
-    gender: gender,
-    language: language,
-  };
-  //push newUser val to users arr
+  let form = document.querySelector("#userForm");
+  let formData = new FormData(form);
+  const newUser = {};
+
+  for (let [key, value] of formData) {
+    newUser[key] = value;
+    console.log("New User", newUser);
+  }  
+
   users.push(newUser);
 
   document.querySelector("#userForm").reset();
   userTable();
 }
+
+
 
 function deleteUser(index) {
   users.splice(index, 1);
@@ -103,7 +124,7 @@ function searchUsers() {
   var filteredUsers = users.filter(function (user) {
     return searchFields.some(function (field) {
       return user[field].toLowerCase().includes(searchInput);
-    });
+    }); 
   });
 
   var tbody = document.querySelector("#users tbody");
