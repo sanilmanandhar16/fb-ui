@@ -1,178 +1,169 @@
-// Users data
 var users = [
   {
-    name: "Ram",
-    address: "Kathmandu",
-    dob: "2000-1-2",
+    firstname: "Ram",
+    lastname: "Kathmandu",
     email: "ram@gmail.com",
+    dob: "2002-1-1",
+    gender: "Male",
     language: "English",
-    gender: "Male",
   },
   {
-    name: "Sanil ",
-    address: "Lalitpur",
-    dob: "2004-10-2",
-    email: "sanil@gmail.com",
+    firstname: "Shyam",
+    lastname: "Maharjan",
+    email: "shyam@gmail.com",
+    dob: "2002-8-1",
+    gender: "Male",
     language: "Nepali",
-    gender: "Male",
   },
   {
-    name: "Hari",
-    address: "Bhaktapur",
-    dob: "2022-10-2",
-    email: "Hari123@gmail.com",
-    language: "Hindi",
-    gender: "Male",
-  },
-  {
-    name: "Sita",
-    address: "Kuleshwor",
-    dob: "2012-1-2",
-    email: "Sita888@gmail.com",
-    language: "Nepali",
+    firstname: "Sita",
+    lastname: "Shrestha",
+    email: "sita@gmail.com",
+    dob: "2000-8-2",
     gender: "Female",
+    language: "Hindi",
+  },
+  {
+    firstname: "Sanil",
+    lastname: "Manandhar",
+    email: "sanil@gmail.com",
+    dob: "1998-1-1",
+    gender: "Male",
+    language: "English",
   },
 ];
 
-// first euta table banauna function banaune
-
-// append child le  add garne kaam garcha
-
 function userTable() {
-  var tbody = document.querySelector("#users tbody");
-
-  users.forEach(function (user) {
-    var row = document.createElement("tr");
-
-    var nameCell = document.createElement("td");
-    nameCell.textContent = user.name;
-    row.appendChild(nameCell);
-
-    var addressCell = document.createElement("td");
-    addressCell.textContent = user.address;
-    row.appendChild(addressCell);
-
-    var dobCell = document.createElement("td");
-    dobCell.textContent = user.dob;
-    row.appendChild(dobCell);
-
-    var emailCell = document.createElement("td");
-    emailCell.textContent = user.email;
-    row.appendChild(emailCell);
+  const tbody = document.querySelector("#users tbody");
+  tbody.innerHTML = "";
+  users.forEach((user, index) => {
+    //create a table row
+    const row = document.createElement("tr");
+    // fetching the above users val in table
+    row.innerHTML = `
+    
+      <td>${user.firstname}</td>
+      <td>${user.lastname}</td>
+      <td>${user.email}</td>
+      <td>${user.dob}</td>
+      <td>${user.gender}</td>
+      <td>${user.language}</td>
+      <td>
+      <button class="delete-button" onclick="deleteUser(${index})"><i class="fa fa-trash"></i></button>
+    
+      </td>
+    `;
     tbody.appendChild(row);
-
-    var languageCell = document.createElement("td");
-    languageCell.textContent = user.language;
-    row.appendChild(languageCell);
-
-    var genderCell = document.createElement("td");
-    genderCell.textContent = user.gender;
-    row.appendChild(genderCell);
   });
 }
 
 function addUser(event) {
-  event.preventDefault(); // Prevent form submission
-
-  // paila suru form bata values lyaune
-  var name = document.querySelector("#name").value;
-  var address = document.querySelector("#address").value;
+  event.preventDefault();
+  //form bata aune input val
+  var firstname = document.querySelector("#firstname").value;
+  var lastname = document.querySelector("#lastname").value;
   var dob = document.querySelector("#dob").value;
   var email = document.querySelector("#email").value;
   var language = document.querySelector('input[name="language"]:checked').value;
   var gender = document.querySelector("#gender").value;
-  // newUSer object create
+
+  //val lai chai newUser ma store garne
   var newUser = {
-    name: name,
-    address: address,
-    dob: dob,
+    firstname: firstname,
+    lastname: lastname,
     email: email,
-
-    language: language,
+    dob: dob,
     gender: gender,
+    language: language,
   };
-
-  // Add the new user to the array
+  //push newUser val to users arr
   users.push(newUser);
 
-  // Clear the form inputs
-  document.querySelector("#name").value = "";
-  document.querySelector("#address").value = "";
-  document.querySelector("#dob").value = "";
-  document.querySelector("#email").value = "";
-  document.querySelector("#gender").value = "";
+  document.querySelector("#userForm").reset();
+  userTable();
+}
 
-  // Clear the table body and re-render the table
-  var tbody = document.querySelector("#users tbody");
-  tbody.innerHTML = "";
+function deleteUser(index) {
+  users.splice(index, 1);
   userTable();
 }
 
 function searchUsers() {
-  // first of all the input value is converted into the lowercase
   var searchInput = document.querySelector("#searchInput").value.toLowerCase();
 
-
-  console.log("Search Input:", searchInput); //  searchInput le naya filtered array banayera dincha
-
-
-  //filtered users is declared. Here users is an array to be filtered
+  var searchFields = [
+    "firstname",
+    "lastname",
+    "email",
+    "dob",
+    "gender",
+    "language",
+  ];
 
   var filteredUsers = users.filter(function (user) {
-    return (
-      user.name.toLowerCase().includes(searchInput) ||
-      user.address.toLowerCase().includes(searchInput)||
-      user.dob.toLowerCase().includes(searchInput)||
-      user.email.toLowerCase().includes(searchInput)||
-      user.language.toLowerCase().includes(searchInput)||
-      user.gender.toLowerCase().includes(searchInput)
-    );
+    return searchFields.some(function (field) {
+      return user[field].toLowerCase().includes(searchInput);
+    });
   });
-
-// if substrings match bhako cha bhaye chai filtered users ma value aune bhayo
-  console.log("Filtered Users:", filteredUsers);
-
 
   var tbody = document.querySelector("#users tbody");
-  tbody.innerHTML = ""; //to clear
-
-  //to play on row and datas
-  filteredUsers.forEach(function (user) {
-    var row = document.createElement("tr");
-
-    var nameCell = document.createElement("td");
-    nameCell.textContent = user.name;
-    row.appendChild(nameCell);
-
-    var addressCell = document.createElement("td");
-    addressCell.textContent = user.address;
-    row.appendChild(addressCell);
-
-    var dobCell = document.createElement("td");
-    dobCell.textContent = user.dob;
-    row.appendChild(dobCell);
-
-    var emailCell = document.createElement("td");
-    emailCell.textContent = user.email;
-    row.appendChild(emailCell);
-    
-    var languageCell = document.createElement("td");
-    languageCell.textContent = user.language;
-    row.appendChild(languageCell);
-
-     
-    var genderCell = document.createElement("td");
-    genderCell.textContent = user.gender;
-    row.appendChild(genderCell);
-
-    tbody.appendChild(row);
-  });
+  tbody.innerHTML = "";
+  //if-else to display no users found if the searchbar doesnot match any users
+  if (filteredUsers.length === 0) {
+    const emptyusers = document.createElement("tr");
+    emptyusers.innerHTML = `<td colspan="7">No users found</td>`;
+    tbody.appendChild(emptyusers);
+  } else {
+    filteredUsers.forEach(function (user) {
+      const row = document.createElement("tr");
+      row.innerHTML = `
+        <td>${user.firstname}</td>
+        <td>${user.lastname}</td>
+        <td>${user.email}</td>
+        <td>${user.dob}</td>
+        <td>${user.gender}</td>
+        <td>${user.language}</td>
+        <td>
+        <button class ="delete-button" onclick="deleteUser(${users.indexOf(
+          user
+        )})"><i class="fa fa-trash"></i></button>
+          
+        </td>
+      `;
+      tbody.appendChild(row);
+    });
+  }
 }
 
-// form ko submit event ma add user lai bind garne
+//to get the form values from the form
+document.addEventListener("DOMContentLoaded", function () {
+  var formData = JSON.parse(localStorage.getItem("formData"));
+
+  if (formData) {
+    const tbody = document.querySelector("#users tbody");
+    var row = tbody.insertRow();
+    row.innerHTML = `
+      <td>${formData.firstname}</td>
+      <td>${formData.lastname}</td>
+      <td>${formData.email}</td>
+      <td>${formData.dob}</td>
+      <td>${formData.gender}</td>
+      <td>${formData.language}</td>
+      <td>
+        <button onclick="deleteUser(${users.indexOf(formData)})">Delete</button>
+       
+      </td>
+      
+    `;
+  }
+
+  localStorage.removeItem("formData");
+});
+
 var userForm = document.querySelector("#userForm");
 userForm.addEventListener("submit", addUser);
 
 var searchButton = document.querySelector("#searchButton");
 searchButton.addEventListener("click", searchUsers);
+
 userTable();

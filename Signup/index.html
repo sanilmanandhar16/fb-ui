@@ -15,21 +15,25 @@
         </div>
         <hr />
         <div class="form">
-          <form method="GET" id="form" onsubmit="validateForm(event)">
+          <form
+            action="../Signup/accdetails.html"
+            method="POST"
+            id="form"
+            onsubmit="validateForm(event)"
+          >
             <div class="input-text">
               <input
                 id="firstname"
                 type="text"
                 name="firstname"
                 placeholder="Your First Name"
-                s
               />
               <div id="fnameerror" class="error"></div>
             </div>
             <div class="input-text">
               <input
                 id="lastname"
-                type="lastname"
+                type="text"
                 name="lastname"
                 placeholder="Your Last Name"
               />
@@ -45,28 +49,20 @@
               <div id="emailerror" class="error"></div>
             </div>
             <div class="dob">
-              <label for="birthday"></label>
-                <b>Date of Birth:</b></label
-              >
+              <label for="dob"><b>Date of Birth:</b></label>
               <input type="date" id="dob" name="dob" />
               <div id="doberror" class="error"></div>
             </div>
-
             <div class="inputform-radio">
               <label><b>Gender:</b></label>
-
               <input type="radio" id="male" name="gender" value="male" />
               <label for="male">Male</label>
-
               <input type="radio" id="female" name="gender" value="female" />
               <label for="female">Female</label>
-
               <input type="radio" id="other" name="gender" value="other" />
               <label for="other">Other</label>
-
-              
+              <div id="gendererror" class="error"></div>
             </div>
-            <div id="gendererror" class="error"></div>
             <div class="input-select">
               <div class="i-select">
                 <label><b>Language</b></label>
@@ -74,7 +70,7 @@
                   id="language"
                   class="language"
                   name="language"
-                  form="language"
+                  form="form"
                 >
                   <option value="english">English</option>
                   <option value="nepali">Nepali</option>
@@ -82,35 +78,18 @@
                   <option value="chinese">Chinese</option>
                 </select>
               </div>
-
               <div id="languageerror" class="error"></div>
             </div>
             <div class="checkboxsection">
-                <label style="margin-left:45px"><b>Skills</b></label>
-                
-              <input
-                type="checkbox"
-                id="box1"
-                name="box1"
-                value="Frontend"
-              />
+              <label style="margin-left: 45px"><b>Skills</b></label>
+              <input type="checkbox" id="box1" name="box1" value="Frontend" />
               <label for="box1"> Frontend</label><br />
-              <input
-                type="checkbox"
-                id="box2"
-                name="box2"
-                value="backend"
-              />
+              <input type="checkbox" id="box2" name="box2" value="backend" />
               <label for="box2"> Backend</label><br />
-              <input
-                type="checkbox"
-                id="box3"
-                name="box3"
-                value="fullstack"
-              />
+              <input type="checkbox" id="box3" name="box3" value="fullstack" />
               <label for="box3"> FullStack</label><br />
             </div>
-            <div id = "skillserror"></div>
+            <div id="skillserror" class="error"></div>
             <div class="createbutton">
               <button type="submit">Create Account</button>
             </div>
@@ -122,7 +101,6 @@
         <br />
         <hr style="color: grey" />
         <br />
-
         <button class="btn">
           <a href="../login/index.html"> Go back to login </a>
         </button>

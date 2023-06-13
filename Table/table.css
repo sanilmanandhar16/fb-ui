@@ -75,7 +75,8 @@ th, td {
 }
 
 th {
-  background-color: #94b3b9;
+  background-color: #55b5c8;
+
 }
 
 .gendersection select{
@@ -135,6 +136,28 @@ input[type="date"]{
     border-radius: 20px;
 }
 
+.delete-button{
+  background-color: red;
+  width: 80px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.delete-button i{
+  font-size: 18px;
+}
+
+.dlt-user{
+  background-color: red;
+  width: 80px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.dlt-user i{
+  font-size: 18px;
+}
 
 @media (max-width: 1050px) {
   .container {
@@ -178,6 +201,15 @@ input[type="date"]{
     
   }
 }
+
+.search-button{
+  background-color: #030202;
+}
+.search-button i{
+  color: yellow;
+  font-size: 20px;
+
+}
 @media (max-width: 450px) {
   .container {
     flex-direction: column;
@@ -189,6 +221,7 @@ input[type="date"]{
     height: 928px;
     border-radius: 0px;
   }
+  
   .form{
     margin: 0;
     padding: 50px;
