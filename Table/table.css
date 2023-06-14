@@ -1,6 +1,10 @@
 *{
   font-family: "Roboto Mono";
 }
+
+tbody{
+  background-color: whitesmoke;
+}
 .search{
   text-align: center;
   background-color: rgb(201, 240, 170);
@@ -147,7 +151,16 @@ input[type="date"]{
 .delete-button i{
   font-size: 18px;
 }
-
+.edit-button{
+  background-color: green;
+  width: 80px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.edit-button i{
+  font-size: 18px;
+}
 .dlt-user{
   background-color: red;
   width: 80px;

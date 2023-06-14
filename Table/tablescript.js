@@ -37,40 +37,104 @@ function userTable() {
   const tbody = document.querySelector("#users tbody");
   tbody.innerHTML = "";
   users.forEach((user, index) => {
-    //create a table row
     const row = document.createElement("tr");
-    // fetching the above users val in table
     row.innerHTML = `
-    
-      <td>${user.firstname}</td>
-      <td>${user.lastname}</td>
-      <td>${user.email}</td>
-      <td>${user.dob}</td>
-      <td>${user.gender}</td>
-      <td>${user.language}</td>
-      <td>
-      <button class="delete-button" onclick="deleteUser(${index})"><i class="fa fa-trash"></i></button>
-    
-      </td>
-    `;
+          <td>${user.firstname}</td>
+          <td>${user.lastname}</td>
+          <td>${user.email}</td>
+          <td>${user.dob}</td>
+          <td>${user.gender}</td>
+          <td>${user.language}</td>
+          <td>
+            <div class="action-buttons">
+              <button class="delete-button" onclick="deleteUser(${index})">
+                <i class="fa fa-trash"></i>
+              </button>
+              <button class="edit-button" onclick="editUser(${index})">
+                <i class="fa fa-pencil" aria-hidden="true"></i>
+              </button>
+            </div>
+          </td>
+        `;
     tbody.appendChild(row);
   });
+}
+
+let editUserIndex = -1;
+
+function editUser(index) {
+  const form = document.querySelector("#userForm");
+  const addButton = document.querySelector("#addButton");
+
+  editUserIndex = index;
+  let user = users[index];
+
+  form.firstname.value = user.firstname;
+  form.lastname.value = user.lastname;
+  form.email.value = user.email;
+  form.dob.value = user.dob;
+  form.gender.value = user.gender;
+  form.language.value = user.language;
+
+console.log("User to be edited:", user);
+
+  addButton.innerHTML = "Update User";
+  addButton.removeEventListener("click", addUser);
+  addButton.addEventListener("click", updateUser);
+}
+
+//button change garna lai updateuser function
+//copy of edit
+function updateUser(event) {
+  event.preventDefault();
+
+  const form = document.querySelector("#userForm");
+  const formData = new FormData(form);
+  const updatedUser = {};
+
+  for (let [key, value] of formData) {
+    updatedUser[key] = value;
+
+    
+  }
+ 
+  if (editUserIndex !== -1) {
+    users[editUserIndex] = updatedUser;
+    editUserIndex = -1;
+
+
+  console.log("Updated User:", updatedUser);
+    //if the data in the fields are updated then now the button is set to
+    //the original state that is add user
+
+
+    const addButton = document.querySelector("#addButton");
+    addButton.innerHTML = "Add user";
+    addButton.removeEventListener("click", updateUser);
+    addButton.addEventListener("click", addUser);
+  }
+
+  form.reset();
+  userTable();
 }
 
 function addUser(event) {
   event.preventDefault();
 
-  let form = document.querySelector("#userForm");
-  let formData = new FormData(form);
+  const form = document.querySelector("#userForm");
+  const formData = new FormData(form);
   const newUser = {};
-  // try with adding other arguments
+
   for (let [key, value] of formData) {
     newUser[key] = value;
   }
 
-  users.push(newUser);
-
-  document.querySelector("#userForm").reset();
+  if (editUserIndex !== -1) {
+    users[editUserIndex] = newUser;
+  } else {
+    users.push(newUser);
+  }
+  form.reset();
   userTable();
 }
 
@@ -80,9 +144,10 @@ function deleteUser(index) {
 }
 
 function searchUsers() {
-  var searchInput = document.querySelector("#searchInput").value.toLowerCase();
-
-  var searchFields = [
+  const searchInput = document
+    .querySelector("#searchInput")
+    .value.toLowerCase();
+  const searchFields = [
     "firstname",
     "lastname",
     "email",
@@ -91,64 +156,56 @@ function searchUsers() {
     "language",
   ];
 
-  var filteredUsers = users.filter(function (user) {
+  const filteredUsers = users.filter(function (user) {
     return searchFields.some(function (field) {
       return user[field].toLowerCase().includes(searchInput);
     });
   });
 
-  var tbody = document.querySelector("#users tbody");
+  const tbody = document.querySelector("#users tbody");
   tbody.innerHTML = "";
-  //if-else to display no users found if the searchbar doesnot match any users
+
   if (filteredUsers.length === 0) {
-    const emptyusers = document.createElement("tr");
-    emptyusers.innerHTML = `<td colspan="7">No users found</td>`;
-    tbody.appendChild(emptyusers);
+    const emptyRow = document.createElement("tr");
+    emptyRow.innerHTML = `<td colspan="7">No users found</td>`;
+    tbody.appendChild(emptyRow);
   } else {
     filteredUsers.forEach(function (user) {
       const row = document.createElement("tr");
       row.innerHTML = `
-        <td>${user.firstname}</td>
-        <td>${user.lastname}</td>
-        <td>${user.email}</td>
-        <td>${user.dob}</td>
-        <td>${user.gender}</td>
-        <td>${user.language}</td>
-        <td>
-        <button class ="delete-button" onclick="deleteUser(${users.indexOf(
-          user
-        )})"><i class="fa fa-trash"></i></button>
-          
-        </td>
-      `;
+            <td>${user.firstname}</td>
+            <td>${user.lastname}</td>
+            <td>${user.email}</td>
+            <td>${user.dob}</td>
+            <td>${user.gender}</td>
+            <td>${user.language}</td>
+            <td>
+              <button class="delete-button" onclick="deleteUser(${users.indexOf(
+                user
+              )})">
+                <i class="fa fa-trash"></i>
+              </button>
+              <button class="edit-button" onclick="editUser(${users.indexOf(
+                user
+              )})">
+                <i class="fa fa-pencil" aria-hidden="true"></i>
+              </button>
+            </td>
+          `;
       tbody.appendChild(row);
     });
   }
 }
 
-//to get the form values from the form
 document.addEventListener("DOMContentLoaded", function () {
   var formData = JSON.parse(localStorage.getItem("formData"));
 
   if (formData) {
-    const tbody = document.querySelector("#users tbody");
-    var row = tbody.insertRow();
-    row.innerHTML = `
-      <td>${formData.firstname}</td>
-      <td>${formData.lastname}</td>
-      <td>${formData.email}</td>
-      <td>${formData.dob}</td>
-      <td>${formData.gender}</td>
-      <td>${formData.language}</td>
-      <td>
-        <button onclick="deleteUser(${users.indexOf(formData)})">Delete</button>
-       
-      </td>
-      
-    `;
+    users.push(formData);
+    localStorage.removeItem("formData");
   }
 
-  localStorage.removeItem("formData");
+  userTable();
 });
 
 var userForm = document.querySelector("#userForm");
@@ -157,4 +214,5 @@ userForm.addEventListener("submit", addUser);
 var searchButton = document.querySelector("#searchButton");
 searchButton.addEventListener("click", searchUsers);
 
-userTable();
+
+
